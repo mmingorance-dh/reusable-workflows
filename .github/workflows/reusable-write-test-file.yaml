@@ -19,5 +19,6 @@ jobs:
     steps:
       - name: Write Test File
         run: |
+          echo "Test file" > ${{ inputs.file_name }}
           echo $(pwd)
           ls

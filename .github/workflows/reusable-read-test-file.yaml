@@ -21,3 +21,4 @@ jobs:
         run: |
           echo $(pwd)
           ls
+          cat ${{ inputs.file_name }}
