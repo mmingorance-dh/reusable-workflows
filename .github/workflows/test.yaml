@@ -21,9 +21,9 @@ jobs:
   write-test-file:
     uses: mmingorance-dh/reusable-workflows/.github/workflows/reusable-write-test-file.yaml@main
     with:
-      file_name: ${{ inputs.file_name }}
+      file_name: ${{ github.event.inputs.file_name }}
 
   read-test-file:
     uses: mmingorance-dh/reusable-workflows/.github/workflows/reusable-read-test-file.yaml@main
     with:
-      file_name: ${{ inputs.file_name }}
+      file_name: ${{ github.event.inputs.file_name }}
