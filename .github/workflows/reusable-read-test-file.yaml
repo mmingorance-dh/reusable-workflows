@@ -18,4 +18,4 @@ jobs:
         - ${{ github.workspace }}:/github/workspace
     steps:
       - name: Read Test File
-        run: cat ${{ inputs.file_name }})
+        run: cat ${{ inputs.file_name }}
