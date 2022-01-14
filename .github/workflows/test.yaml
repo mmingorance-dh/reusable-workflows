@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+    inputs:
+      file_name:
+        description: "File Name"
+        required: true
+        type: string
+
+jobs:
+  checkout:
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://ubuntu:18.04
+      volumes:
+        - ${{ github.workspace }}:/github/workspace
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+  write-test-file:
+    uses: mmingorance-dh/reusable-workflows/.github/workflows/reusable-write-test-file.yaml@main
+    with:
+      file_name: ${{ inputs.file_name }}
+
+  read-test-file:
+    uses: mmingorance-dh/reusable-workflows/.github/workflows/reusable-read-test-file.yaml@main
+    with:
+      file_name: ${{ inputs.file_name }}

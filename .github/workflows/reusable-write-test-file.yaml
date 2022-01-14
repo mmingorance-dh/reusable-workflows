@@ -1,0 +1,21 @@
+name: Reusable Write Test File
+
+on:
+  workflow_call:
+    inputs:
+      file_name:
+        required: true
+        type: string
+
+
+jobs:
+  write-test-file:
+    name: Write Test File
+    runs-on: ubuntu-18.04
+    container:
+      image: docker://ubuntu:18.04
+      volumes:
+        - ${{ github.workspace }}:/github/workspace
+    steps:
+      - name: Write Test File
+        run: echo "test file" > ${{ inputs.file_name }})
