@@ -18,4 +18,6 @@ jobs:
         - ${{ github.workspace }}:/github/workspace
     steps:
       - name: Write Test File
-        run: echo "test file" > ${{ inputs.file_name }}
+        run: >
+          echo $(pwd)
+          ls
